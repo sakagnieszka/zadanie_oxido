@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podgląd Artykułu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .editor {
+        width: 100%;
+        height: 300px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        box-sizing: border-box;
+      }
+      .btn-preview {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        margin: 20px 0;
+        font-size: 16px;
+      }
+      .btn-preview:hover {
+        background-color: #45a049;
+      }
+      .article-preview {
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .article-preview h1 {
+        font-size: 24px;
+        color: #333;
+      }
+      .article-preview p {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Podgląd Artykułu</h1>
+      <textarea
+        class="editor"
+        id="editor"
+        placeholder="Wklej artykuł tutaj..."
+      ></textarea>
+      <button class="btn-preview" id="previewBtn">Pokaż podgląd</button>
+      <div id="previewContainer" class="article-preview"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("previewBtn")
+        .addEventListener("click", function () {
+          var editorContent = document.getElementById("editor").value;
+          var previewContainer = document.getElementById("previewContainer");
+
+          if (editorContent.trim() !== "") {
+            previewContainer.innerHTML = editorContent;
+          } else {
+            previewContainer.innerHTML =
+              "<p>Wklej tekst artykułu, aby zobaczyć podgląd.</p>";
+          }
+        });
+    </script>
+  </body>
+</html>
